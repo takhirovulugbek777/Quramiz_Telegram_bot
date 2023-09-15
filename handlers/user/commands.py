@@ -9,9 +9,11 @@ from keyboards.default import *
 def send_welcome(message: Message):
     chat_id = message.chat.id
     user_id = message.from_user.id
-    db.save_user(user_id)
     user_name = message.from_user.full_name
-    print(user_id, user_name)
+
+    db.save_user(user_id)  # Save telegram_id
+    db.save_user_name(user_id, user_name)  # Save full_name
+
     bot.send_message(chat_id,
                      f'Здравствуйте {message.from_user.full_name}, добро пожаловать в Quramiz (официальный) бот!!!',
                      reply_markup=main_menu_btn())

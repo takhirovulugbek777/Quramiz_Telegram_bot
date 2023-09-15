@@ -44,6 +44,10 @@ class DataBase:
         sql = '''SELECT * FROM users WHERE telegram_id = %s'''
         return self.manager(sql, telegram_id, fetchone=True)
 
+    def save_user_name(self, telegram_id, full_name):
+        sql = '''UPDATE users SET full_name=%s WHERE telegram_id=%s'''
+        self.manager(sql, full_name, telegram_id, commit=True)
+
     def register_user(self, full_name, contact, telegram_id):
         sql = '''UPDATE users SET full_name=%s, contact=%s WHERE telegram_id=%s'''
         self.manager(sql, full_name, contact, telegram_id, commit=True)

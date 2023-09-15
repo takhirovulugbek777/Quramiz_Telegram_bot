@@ -10,4 +10,4 @@ DB_PASSWORD = '1234'
 API = f"https://quramiz.uz/api/product2/filter?catalog="
 DETAIL_API = 'https://quramiz.uz/api/product2/'
 
-ADMIN = [1651940013, 124118340]
+ADMIN = []
